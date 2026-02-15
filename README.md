@@ -1,5 +1,9 @@
 # Ian's OpenClaw Skills
 
+![TypeScript](https://img.shields.io/badge/TypeScript-007ACC?style=flat&logo=typescript&logoColor=white)
+![OpenClaw](https://img.shields.io/badge/OpenClaw-AI_Agent-purple)
+![License](https://img.shields.io/badge/License-MIT-green.svg)
+
 Custom skills for [OpenClaw](https://github.com/openclaw/openclaw) - the open-source AI assistant.
 
 ## Skills Included
