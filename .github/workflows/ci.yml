@@ -1,0 +1,53 @@
+name: CI
+
+on:
+  push:
+    branches: [devin/1771094911-openclaw-skills]
+  pull_request:
+    branches: [devin/1771094911-openclaw-skills]
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Validate SKILL.md files exist
+        run: |
+          echo "Checking for SKILL.md files in each skill directory..."
+          for dir in */; do
+            if [ -d "$dir" ] && [ "$dir" != ".github/" ]; then
+              if [ -f "${dir}SKILL.md" ]; then
+                echo "Found: ${dir}SKILL.md"
+              else
+                echo "Missing: ${dir}SKILL.md"
+                exit 1
+              fi
+            fi
+          done
+          echo "All skill directories have SKILL.md files"
+
+      - name: Validate SKILL.md format
+        run: |
+          echo "Checking SKILL.md files have required sections..."
+          for file in */SKILL.md; do
+            echo "Checking $file..."
+            if ! grep -q "^# " "$file"; then
+              echo "Missing title in $file"
+              exit 1
+            fi
+            if ! grep -q -i "description\|overview\|about" "$file"; then
+              echo "Warning: $file may be missing description section"
+            fi
+          done
+          echo "All SKILL.md files pass basic validation"
+
+      - name: Check for README
+        run: |
+          if [ -f "README.md" ]; then
+            echo "README.md exists"
+          else
+            echo "Warning: No README.md found"
+          fi
