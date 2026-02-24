@@ -92,6 +92,26 @@ Bidirectional workflow integration with Devin AI for async development tasks.
 - Webhook-based result callbacks
 - PR generation from completed sessions
 
+### 10. DFS Optimizer (`dfs-optimizer`)
+Build optimal Daily Fantasy Sports lineups under salary-cap constraints for DraftKings and FanDuel.
+
+**Features:**
+- NBA and NFL lineup builders (greedy value optimizer)
+- Stack correlation calculator for NFL GPP tournaments
+- Ownership & leverage scoring for contrarian play selection
+- Quick-reference roster formats for all major DK/FD contests
+
+### 11. Bet Journal (`bet-journal`)
+Track every bet locally, measure your true edge, and find where you're actually making money.
+
+**Features:**
+- Initialize a local CSV journal with `~/.openclaw/bet-journal.csv`
+- Log bets with one command (auto-calculates P&L)
+- Dashboard: record, win rate, ROI, P&L by sport and bet type
+- Closing Line Value (CLV) tracker — the #1 long-term edge metric
+- Monthly P&L chart with running balance
+- Action Network import helper
+
 ## Installation
 
 Copy any skill folder to your OpenClaw skills directory:
@@ -104,6 +124,8 @@ cp -r kelly-criterion ~/.openclaw/skills/
 cp -r portfolio-rebalancer ~/.openclaw/skills/
 cp -r market-sentiment ~/.openclaw/skills/
 cp -r streak-tracker ~/.openclaw/skills/
+cp -r dfs-optimizer ~/.openclaw/skills/
+cp -r bet-journal ~/.openclaw/skills/
 ```
 
 Or publish to [ClawHub](https://clawhub.ai/) for community access.
@@ -119,6 +141,9 @@ Once installed, OpenClaw will automatically use these skills when relevant. You 
 - "Rebalance my portfolio to 60/30/10 BTC/ETH/SOL"
 - "What's the current market sentiment for BTC?"
 - "Is the Lakers ATS streak due for regression?"
+- "Build me an optimal DraftKings NBA lineup for tonight"
+- "Log a bet: Warriors -3.5 at -110, $100 stake, win"
+- "Show me my bet journal dashboard"
 
 ## Author
 
