@@ -6,6 +6,33 @@
 
 Custom skills for [OpenClaw](https://github.com/openclaw/openclaw) - the open-source AI assistant.
 
+## 📦 Featured Bundles
+
+Curated sets of skills that solve a real problem end-to-end. Install one bundle, get a working system.
+
+### 🎯 [Sports Bettor](./bundles/sports-bettor.md)
+**Real-time odds → Kelly-sized bet → journaled P&L. The full loop.**
+
+- `sports-odds` — Live odds from major sportsbooks
+- `kelly-criterion` — Mathematically optimal bet sizing
+- `bet-journal` — Closing-line value and ROI tracking
+
+### 💰 Crypto Watcher
+**Track prices, read sentiment, rebalance automatically.**
+
+- `crypto-price` — Real-time prices across exchanges
+- `market-sentiment` — Sentiment scoring from news + social
+- `portfolio-rebalancer` — Threshold-based rebalancing
+
+### 🛠️ Developer Power Tools
+**Ship faster and sleep better.**
+
+- `git-helper` — Smart git workflows (rebase, bisect, cleanup)
+- `screenshot-annotator` — Mark up screenshots for bug reports
+- `security-scanner` — Dependency CVE checks, secret detection
+
+---
+
 ## Skills Included
 
 ### 1. Sports Betting Odds (`sports-odds`)
