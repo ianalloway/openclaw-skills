@@ -2,9 +2,8 @@ name: CI
 
 on:
   push:
-    branches: [devin/1771094911-openclaw-skills]
+    branches: [main]
   pull_request:
-    branches: [devin/1771094911-openclaw-skills]
 
 jobs:
   validate:
@@ -18,7 +17,7 @@ jobs:
         run: |
           echo "Checking for SKILL.md files in each skill directory..."
           for dir in */; do
-            if [ -d "$dir" ] && [ "$dir" != ".github/" ]; then
+            if [ -d "$dir" ] && [ "$dir" != ".github/" ] && [ "$dir" != "bundles/" ]; then
               if [ -f "${dir}SKILL.md" ]; then
                 echo "Found: ${dir}SKILL.md"
               else
