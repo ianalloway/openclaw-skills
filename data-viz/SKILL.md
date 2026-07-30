@@ -74,8 +74,9 @@ cat timeseries.csv | uplot line -d, -H -t "Stock Price"
 ## From JSON (with jq)
 
 ```bash
-# Extract data from JSON and plot
-curl -s "https://api.example.com/data" | jq -r '.items[] | "\(.name),\(.value)"' | uplot bar -d,
+# Extract data from JSON and plot (CoinGecko markets as a live example)
+curl -s "https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&order=market_cap_desc&per_page=10&page=1" \
+  | jq -r '.[] | "\(.symbol),\(.current_price)"' | uplot bar -d,
 ```
 
 ## Termgraph (Python Alternative)

@@ -1,6 +1,6 @@
 ---
 emoji: "🔀"
-title: "Git Helper"
+name: git-helper
 description: "Common git commands, workflows, and troubleshooting for everyday development"
 requires:
   - git
@@ -158,7 +158,7 @@ git rebase --continue
 git remote -v
 
 # Add remote
-git remote add upstream https://github.com/original/repo.git
+git remote add upstream https://github.com/openclaw/openclaw.git
 
 # Fetch from all remotes
 git fetch --all

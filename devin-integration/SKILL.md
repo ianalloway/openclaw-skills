@@ -1,6 +1,6 @@
 ---
 emoji: "🤖"
-title: "Devin Integration"
+name: devin-integration
 description: "Delegate coding tasks to Devin AI agent. Create PRs, fix bugs, build features, and manage GitHub repos through Devin's API."
 requires:
   - curl

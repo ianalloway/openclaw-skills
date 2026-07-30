@@ -1,6 +1,6 @@
 ---
 emoji: "💰"
-title: "Crypto Price Tracker"
+name: crypto-price
 description: "Get real-time cryptocurrency prices, market data, and portfolio tracking"
 requires:
   - curl

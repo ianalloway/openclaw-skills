@@ -1,6 +1,6 @@
 ---
 emoji: "🌤️"
-title: "Weather Forecast"
+name: weather-forecast
 description: "Get current weather conditions and forecasts for any location"
 requires:
   - curl
