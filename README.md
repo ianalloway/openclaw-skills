@@ -6,6 +6,8 @@
 
 Custom skills for [OpenClaw](https://github.com/openclaw/openclaw) - the open-source AI assistant.
 
+This repo currently includes **15 skills**.
+
 ## 📦 Featured Bundles
 
 Curated sets of skills that solve a real problem end-to-end. Install one bundle, get a working system.
@@ -55,7 +57,7 @@ Track NFT collection prices, floor prices, and sales data for Ethereum collectio
 - Volume statistics (24h, 7d, 30d)
 - Token-level lookups
 
-**Uses:** [Reservoir API](https://reservoir.tools/) (free, no key required)
+**Uses:** [OpenSea API](https://docs.opensea.io/reference/api-overview) (API key required)
 
 ### 3. Data Visualization (`data-viz`)
 Create charts and graphs directly in the terminal from CSV/JSON data.
@@ -139,6 +141,48 @@ Track every bet locally, measure your true edge, and find where you're actually 
 - Monthly P&L chart with running balance
 - Action Network import helper
 
+### 12. Crypto Price (`crypto-price`)
+Get real-time cryptocurrency prices, market cap, volume, and portfolio value from CoinGecko.
+
+**Features:**
+- Live prices for any coin (single or batch)
+- Market cap, 24h volume, ATH, and trending coins
+- Simple portfolio value calculator
+- ETH gas oracle lookup
+
+**Uses:** [CoinGecko API](https://www.coingecko.com/en/api/documentation) (free, no key required)
+
+### 13. Git Helper (`git-helper`)
+Everyday git workflows: branching, rebasing, undoing mistakes, and cleanup.
+
+**Features:**
+- Conventional commit examples
+- Undo, stash, rebase, and cherry-pick recipes
+- Branch and remote management
+- Troubleshooting (detached HEAD, reflog recovery)
+
+### 14. Screenshot Annotator (`screenshot-annotator`)
+Capture, annotate, and describe screenshots for bug reports and tutorials (macOS).
+
+**Features:**
+- Full screen, window, or region capture via Peekaboo
+- Auto-annotated UI element IDs
+- AI descriptions of on-screen state
+- Before/after comparison workflows
+
+**Requires:** macOS + [Peekaboo](https://github.com/steipete/Peekaboo) (`brew install steipete/tap/peekaboo`)
+
+### 15. Weather Forecast (`weather-forecast`)
+Current conditions, multi-day forecasts, and alerts for any location.
+
+**Features:**
+- One-liner and JSON weather via wttr.in (no API key)
+- NWS alerts by point or state (US)
+- Sunrise/sunset and moon phase
+- Optional OpenWeatherMap detailed data
+
+**Uses:** [wttr.in](https://github.com/chubin/wttr.in) (free, no key required)
+
 ## Installation
 
 Copy any skill folder to your OpenClaw skills directory:
@@ -151,8 +195,14 @@ cp -r kelly-criterion ~/.openclaw/skills/
 cp -r portfolio-rebalancer ~/.openclaw/skills/
 cp -r market-sentiment ~/.openclaw/skills/
 cp -r streak-tracker ~/.openclaw/skills/
+cp -r security-scanner ~/.openclaw/skills/
+cp -r devin-integration ~/.openclaw/skills/
 cp -r dfs-optimizer ~/.openclaw/skills/
 cp -r bet-journal ~/.openclaw/skills/
+cp -r crypto-price ~/.openclaw/skills/
+cp -r git-helper ~/.openclaw/skills/
+cp -r screenshot-annotator ~/.openclaw/skills/
+cp -r weather-forecast ~/.openclaw/skills/
 ```
 
 Or publish to [ClawHub](https://clawhub.ai/) for community access.
@@ -171,6 +221,10 @@ Once installed, OpenClaw will automatically use these skills when relevant. You 
 - "Build me an optimal DraftKings NBA lineup for tonight"
 - "Log a bet: Warriors -3.5 at -110, $100 stake, win"
 - "Show me my bet journal dashboard"
+- "What's the Bitcoin price right now?"
+- "Help me rebase this branch onto main"
+- "Annotate a screenshot of this bug"
+- "What's the weather in NYC?"
 
 ## Author
 
