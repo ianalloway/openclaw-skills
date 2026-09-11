@@ -1,11 +1,17 @@
 ---
-emoji: "🔀"
 name: git-helper
 description: "Common git commands, workflows, and troubleshooting for everyday development"
-requires:
-  - git
+homepage: https://github.com/ianalloway/openclaw-skills
+metadata:
+  {
+    "openclaw":
+      {
+        "emoji": "🔀",
+        "requires": { "bins": ["git"] },
+        "credentials": [],
+      },
+  }
 ---
-
 # Git Helper
 
 Quick reference for common git operations, workflows, and fixes.
