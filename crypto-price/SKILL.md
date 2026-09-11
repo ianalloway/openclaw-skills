@@ -1,12 +1,17 @@
 ---
-emoji: "💰"
 name: crypto-price
 description: "Get real-time cryptocurrency prices, market data, and portfolio tracking"
-requires:
-  - curl
-  - jq
+homepage: https://docs.coingecko.com/
+metadata:
+  {
+    "openclaw":
+      {
+        "emoji": "💰",
+        "requires": { "bins": ["curl", "jq"] },
+        "credentials": [],
+      },
+  }
 ---
-
 # Crypto Price Tracker
 
 Get real-time cryptocurrency prices, market cap, volume, and track your portfolio value.
@@ -126,6 +131,6 @@ curl -s "https://api.coingecko.com/api/v3/search/trending" | jq '.coins | .[] | 
 
 ## Resources
 
-- [CoinGecko API Docs](https://www.coingecko.com/en/api/documentation)
+- [CoinGecko API Docs](https://docs.coingecko.com/)
 - [CoinMarketCap API](https://coinmarketcap.com/api/)
 - [Etherscan API](https://docs.etherscan.io/)

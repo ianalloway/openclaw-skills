@@ -7,14 +7,21 @@ DEST="${OPENCLAW_SKILLS_DIR:-${HOME}/.openclaw/skills}"
 BUNDLE=""
 
 usage() {
-  cat <<'EOF'
+  cat <<'EOFUSAGE'
 Usage: install.sh [--bundle NAME] [--dest DIR] [skill...]
+
+Bundles:
+  sports-bettor      sports-odds kelly-criterion bet-journal
+  crypto-watcher     crypto-price market-sentiment portfolio-rebalancer
+  developer-tools    git-helper screenshot-annotator security-scanner
 
 Examples:
   ./install.sh sports-odds kelly-criterion bet-journal
   ./install.sh --bundle sports-bettor
+  ./install.sh --bundle crypto-watcher
+  ./install.sh --bundle developer-tools
   curl -sL https://raw.githubusercontent.com/ianalloway/openclaw-skills/main/install.sh | bash -s -- --bundle sports-bettor
-EOF
+EOFUSAGE
 }
 
 while [[ $# -gt 0 ]]; do
@@ -30,7 +37,9 @@ SKILLS=("$@")
 if [[ -n "$BUNDLE" ]]; then
   case "$BUNDLE" in
     sports-bettor) SKILLS=(sports-odds kelly-criterion bet-journal) ;;
-    *) echo "Unknown bundle: $BUNDLE" >&2; exit 1 ;;
+    crypto-watcher) SKILLS=(crypto-price market-sentiment portfolio-rebalancer) ;;
+    developer-tools) SKILLS=(git-helper screenshot-annotator security-scanner) ;;
+    *) echo "Unknown bundle: $BUNDLE" >&2; usage >&2; exit 1 ;;
   esac
 fi
 

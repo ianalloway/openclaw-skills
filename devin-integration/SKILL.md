@@ -1,16 +1,17 @@
 ---
-emoji: "🤖"
 name: devin-integration
 description: "Delegate coding tasks to Devin AI agent. Create PRs, fix bugs, build features, and manage GitHub repos through Devin's API."
-requires:
-  - curl
-  - jq
+homepage: https://github.com/ianalloway/openclaw-skills
 metadata:
-  author: ianalloway
-  version: "1.0.0"
-  category: development
+  {
+    "openclaw":
+      {
+        "emoji": "🤖",
+        "requires": { "bins": ["curl", "jq"] },
+        "credentials": [],
+      },
+  }
 ---
-
 # Devin Integration
 
 Delegate software engineering tasks to Devin, an AI coding agent by Cognition AI. Devin can create PRs, fix bugs, add features, refactor code, and manage your GitHub repositories autonomously.

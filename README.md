@@ -1,8 +1,10 @@
 # Ian's OpenClaw Skills
 
-![TypeScript](https://img.shields.io/badge/TypeScript-007ACC?style=flat&logo=typescript&logoColor=white)
+![Skills](https://img.shields.io/badge/skills-15-blue)
+![CI](https://github.com/ianalloway/openclaw-skills/actions/workflows/ci.yml/badge.svg)
 ![OpenClaw](https://img.shields.io/badge/OpenClaw-AI_Agent-purple)
 ![License](https://img.shields.io/badge/License-MIT-green.svg)
+![ClawHub](https://img.shields.io/badge/ClawHub-publishable-orange)
 
 Custom skills for [OpenClaw](https://github.com/openclaw/openclaw) - the open-source AI assistant.
 
@@ -19,14 +21,14 @@ Curated sets of skills that solve a real problem end-to-end. Install one bundle,
 - `kelly-criterion` — Mathematically optimal bet sizing
 - `bet-journal` — Closing-line value and ROI tracking
 
-### 💰 Crypto Watcher
+### 💰 [Crypto Watcher](./bundles/crypto-watcher.md)
 **Track prices, read sentiment, rebalance automatically.**
 
 - `crypto-price` — Real-time prices across exchanges
 - `market-sentiment` — Sentiment scoring from news + social
 - `portfolio-rebalancer` — Threshold-based rebalancing
 
-### 🛠️ Developer Power Tools
+### 🛠️ [Developer Power Tools](./bundles/developer-tools.md)
 **Ship faster and sleep better.**
 
 - `git-helper` — Smart git workflows (rebase, bisect, cleanup)
@@ -150,7 +152,7 @@ Get real-time cryptocurrency prices, market cap, volume, and portfolio value fro
 - Simple portfolio value calculator
 - ETH gas oracle lookup
 
-**Uses:** [CoinGecko API](https://www.coingecko.com/en/api/documentation) (free, no key required)
+**Uses:** [CoinGecko API](https://docs.coingecko.com/) (free, no key required)
 
 ### 13. Git Helper (`git-helper`)
 Everyday git workflows: branching, rebasing, undoing mistakes, and cleanup.
@@ -170,7 +172,7 @@ Capture, annotate, and describe screenshots for bug reports and tutorials (macOS
 - AI descriptions of on-screen state
 - Before/after comparison workflows
 
-**Requires:** macOS + [Peekaboo](https://github.com/steipete/Peekaboo) (`brew install steipete/tap/peekaboo`)
+**Requires:** macOS + [Peekaboo](https://github.com/openclaw/Peekaboo) (`brew install openclaw/tap/peekaboo`)
 
 ### 15. Weather Forecast (`weather-forecast`)
 Current conditions, multi-day forecasts, and alerts for any location.
@@ -185,24 +187,34 @@ Current conditions, multi-day forecasts, and alerts for any location.
 
 ## Installation
 
-Copy any skill folder to your OpenClaw skills directory:
+### Quick install (recommended)
+
+```bash
+git clone https://github.com/ianalloway/openclaw-skills
+cd openclaw-skills
+
+# Individual skills
+./install.sh sports-odds kelly-criterion bet-journal
+
+# Curated bundles
+./install.sh --bundle sports-bettor
+./install.sh --bundle crypto-watcher
+./install.sh --bundle developer-tools
+```
+
+One-liner (no clone required for a bundle):
+
+```bash
+curl -sL https://raw.githubusercontent.com/ianalloway/openclaw-skills/main/install.sh |   bash -s -- --bundle sports-bettor
+```
+
+Skills install to `~/.openclaw/skills/` by default (override with `--dest DIR` or `OPENCLAW_SKILLS_DIR`).
+
+### Manual copy
 
 ```bash
 cp -r sports-odds ~/.openclaw/skills/
-cp -r nft-tracker ~/.openclaw/skills/
-cp -r data-viz ~/.openclaw/skills/
-cp -r kelly-criterion ~/.openclaw/skills/
-cp -r portfolio-rebalancer ~/.openclaw/skills/
-cp -r market-sentiment ~/.openclaw/skills/
-cp -r streak-tracker ~/.openclaw/skills/
-cp -r security-scanner ~/.openclaw/skills/
-cp -r devin-integration ~/.openclaw/skills/
-cp -r dfs-optimizer ~/.openclaw/skills/
-cp -r bet-journal ~/.openclaw/skills/
-cp -r crypto-price ~/.openclaw/skills/
-cp -r git-helper ~/.openclaw/skills/
-cp -r screenshot-annotator ~/.openclaw/skills/
-cp -r weather-forecast ~/.openclaw/skills/
+# …or any other skill folder in this repo
 ```
 
 Or publish to [ClawHub](https://clawhub.ai/) for community access.

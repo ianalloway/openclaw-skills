@@ -14,7 +14,7 @@ metadata:
             {
               "id": "brew",
               "kind": "brew",
-              "formula": "steipete/tap/peekaboo",
+              "formula": "openclaw/tap/peekaboo",
               "bins": ["peekaboo"],
               "label": "Install Peekaboo (brew)",
             },
@@ -39,7 +39,7 @@ Capture screenshots with automatic UI element annotation and AI-powered descript
 ## Requirements
 
 - macOS with Screen Recording permissions
-- Peekaboo CLI installed (`brew install steipete/tap/peekaboo`)
+- Peekaboo CLI installed (`brew install openclaw/tap/peekaboo`)
 
 ## Quick Start
 

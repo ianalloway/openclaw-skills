@@ -1,12 +1,17 @@
 ---
-emoji: "🌤️"
 name: weather-forecast
 description: "Get current weather conditions and forecasts for any location"
-requires:
-  - curl
-  - jq
+homepage: https://github.com/chubin/wttr.in
+metadata:
+  {
+    "openclaw":
+      {
+        "emoji": "🌤️",
+        "requires": { "bins": ["curl", "jq"] },
+        "credentials": [],
+      },
+  }
 ---
-
 # Weather Forecast
 
 Get current weather, forecasts, and alerts for any location worldwide.
