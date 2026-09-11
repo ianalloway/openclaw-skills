@@ -2,10 +2,12 @@
 
 ## Supported Versions
 
-| Version | Supported          |
-| ------- | ------------------ |
-| 1.x.x   | :white_check_mark: |
-| < 1.0   | :x:                |
+This repository publishes skills from the `main` branch (no separate versioned releases yet).
+
+| Branch / tag | Supported          |
+| ------------ | ------------------ |
+| `main`       | :white_check_mark: |
+| Other forks / outdated copies | :x: |
 
 ## Reporting a Vulnerability
 
