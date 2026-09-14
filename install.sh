@@ -13,7 +13,7 @@ Usage: install.sh [--bundle NAME] [--dest DIR] [skill...]
 Bundles:
   sports-bettor      sports-odds kelly-criterion bet-journal
   crypto-watcher     crypto-price market-sentiment portfolio-rebalancer
-  developer-tools    git-helper screenshot-annotator security-scanner
+  developer-tools    git-helper screenshot-annotator security-scanner judge-audit
 
 Examples:
   ./install.sh sports-odds kelly-criterion bet-journal
@@ -38,7 +38,7 @@ if [[ -n "$BUNDLE" ]]; then
   case "$BUNDLE" in
     sports-bettor) SKILLS=(sports-odds kelly-criterion bet-journal) ;;
     crypto-watcher) SKILLS=(crypto-price market-sentiment portfolio-rebalancer) ;;
-    developer-tools) SKILLS=(git-helper screenshot-annotator security-scanner) ;;
+    developer-tools) SKILLS=(git-helper screenshot-annotator security-scanner judge-audit) ;;
     *) echo "Unknown bundle: $BUNDLE" >&2; usage >&2; exit 1 ;;
   esac
 fi

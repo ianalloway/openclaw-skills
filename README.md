@@ -1,6 +1,6 @@
 # Ian's OpenClaw Skills
 
-![Skills](https://img.shields.io/badge/skills-15-blue)
+![Skills](https://img.shields.io/badge/skills-16-blue)
 ![CI](https://github.com/ianalloway/openclaw-skills/actions/workflows/ci.yml/badge.svg)
 ![OpenClaw](https://img.shields.io/badge/OpenClaw-AI_Agent-purple)
 ![License](https://img.shields.io/badge/License-MIT-green.svg)
@@ -8,7 +8,7 @@
 
 Custom skills for [OpenClaw](https://github.com/openclaw/openclaw) - the open-source AI assistant.
 
-This repo currently includes **15 skills**.
+This repo currently includes **16 skills**.
 
 ## 📦 Featured Bundles
 
@@ -34,6 +34,7 @@ Curated sets of skills that solve a real problem end-to-end. Install one bundle,
 - `git-helper` — Smart git workflows (rebase, bisect, cleanup)
 - `screenshot-annotator` — Mark up screenshots for bug reports
 - `security-scanner` — Dependency CVE checks, secret detection
+- `judge-audit` — Audit LLM-as-judge bias with juryrig / HttpJudge
 
 ---
 
@@ -185,6 +186,17 @@ Current conditions, multi-day forecasts, and alerts for any location.
 
 **Uses:** [wttr.in](https://github.com/chubin/wttr.in) (free, no key required)
 
+### 16. Judge Audit (`judge-audit`)
+Audit an LLM-as-judge with [juryrig](https://github.com/ianalloway/juryrig) before you trust its scores.
+
+**Features:**
+- Position, verbosity, prompt-injection, and self-consistency audits
+- Full suite via `juryrig cases.json` CLI (CI-friendly exit codes)
+- `HttpJudge` against any OpenAI-compatible endpoint (Ollama, vLLM, LM Studio)
+- Threshold tuning and calibration helpers (Brier / ECE)
+
+**Requires:** Python 3.10+ and `pip install juryrig` (local models preferred)
+
 ## Installation
 
 ### Quick install (recommended)
@@ -237,6 +249,7 @@ Once installed, OpenClaw will automatically use these skills when relevant. You 
 - "Help me rebase this branch onto main"
 - "Annotate a screenshot of this bug"
 - "What's the weather in NYC?"
+- "Audit this LLM judge for position bias with juryrig"
 
 ## Author
 
