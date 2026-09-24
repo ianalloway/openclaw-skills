@@ -11,12 +11,12 @@ usage() {
 Usage: install.sh [--bundle NAME] [--dest DIR] [skill...]
 
 Bundles:
-  sports-bettor      sports-odds kelly-criterion bet-journal
+  sports-bettor      sports-odds kelly-criterion bet-journal clv-journal
   crypto-watcher     crypto-price market-sentiment portfolio-rebalancer
   developer-tools    git-helper screenshot-annotator security-scanner judge-audit
 
 Examples:
-  ./install.sh sports-odds kelly-criterion bet-journal
+  ./install.sh sports-odds kelly-criterion bet-journal clv-journal
   ./install.sh --bundle sports-bettor
   ./install.sh --bundle crypto-watcher
   ./install.sh --bundle developer-tools
@@ -36,7 +36,7 @@ done
 SKILLS=("$@")
 if [[ -n "$BUNDLE" ]]; then
   case "$BUNDLE" in
-    sports-bettor) SKILLS=(sports-odds kelly-criterion bet-journal) ;;
+    sports-bettor) SKILLS=(sports-odds kelly-criterion bet-journal clv-journal) ;;
     crypto-watcher) SKILLS=(crypto-price market-sentiment portfolio-rebalancer) ;;
     developer-tools) SKILLS=(git-helper screenshot-annotator security-scanner judge-audit) ;;
     *) echo "Unknown bundle: $BUNDLE" >&2; usage >&2; exit 1 ;;

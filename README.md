@@ -1,6 +1,6 @@
 # Ian's OpenClaw Skills
 
-![Skills](https://img.shields.io/badge/skills-16-blue)
+![Skills](https://img.shields.io/badge/skills-17-blue)
 ![CI](https://github.com/ianalloway/openclaw-skills/actions/workflows/ci.yml/badge.svg)
 ![OpenClaw](https://img.shields.io/badge/OpenClaw-AI_Agent-purple)
 ![License](https://img.shields.io/badge/License-MIT-green.svg)
@@ -8,18 +8,19 @@
 
 Custom skills for [OpenClaw](https://github.com/openclaw/openclaw) - the open-source AI assistant.
 
-This repo currently includes **16 skills**.
+This repo currently includes **17 skills**.
 
 ## 📦 Featured Bundles
 
 Curated sets of skills that solve a real problem end-to-end. Install one bundle, get a working system.
 
 ### 🎯 [Sports Bettor](./bundles/sports-bettor.md)
-**Real-time odds → Kelly-sized bet → journaled P&L. The full loop.**
+**Real-time odds → Kelly-sized bet → journaled P&L + CLV. The full loop.**
 
 - `sports-odds` — Live odds from major sportsbooks
 - `kelly-criterion` — Mathematically optimal bet sizing
-- `bet-journal` — Closing-line value and ROI tracking
+- `bet-journal` — Outcome, ROI, and P&L tracking
+- `clv-journal` — Entry vs. close CLV pts and beat-close rate
 
 ### 💰 [Crypto Watcher](./bundles/crypto-watcher.md)
 **Track prices, read sentiment, rebalance automatically.**
@@ -197,6 +198,16 @@ Audit an LLM-as-judge with [juryrig](https://github.com/ianalloway/juryrig) befo
 
 **Requires:** Python 3.10+ and `pip install juryrig` (local models preferred)
 
+### 17. CLV Journal (`clv-journal`)
+Dedicated closing-line journal: log entry + close odds, compute CLV in probability and American pts, roll up beat-close rate.
+
+**Features:**
+- Local CSV at `~/.openclaw/clv-journal.csv` (pending closes supported)
+- Log entry now, fill close at tip-off / kickoff
+- CLV in implied-prob pts, American odds pts, and spread/total half-pts
+- Beat-close rate rollups by sport, book, and market
+- One-shot backfill and no-journal quick calculator
+
 ## Installation
 
 ### Quick install (recommended)
@@ -206,7 +217,7 @@ git clone https://github.com/ianalloway/openclaw-skills
 cd openclaw-skills
 
 # Individual skills
-./install.sh sports-odds kelly-criterion bet-journal
+./install.sh sports-odds kelly-criterion bet-journal clv-journal
 
 # Curated bundles
 ./install.sh --bundle sports-bettor
@@ -245,6 +256,8 @@ Once installed, OpenClaw will automatically use these skills when relevant. You 
 - "Build me an optimal DraftKings NBA lineup for tonight"
 - "Log a bet: Warriors -3.5 at -110, $100 stake, win"
 - "Show me my bet journal dashboard"
+- "Log CLV: Warriors -3.5 at -110, closed at -125"
+- "What's my beat-close rate by sportsbook?"
 - "What's the Bitcoin price right now?"
 - "Help me rebase this branch onto main"
 - "Annotate a screenshot of this bug"
