@@ -20,44 +20,34 @@ Day-to-day engineering friction clusters around four gaps:
 
 ## Install
 
-### Option A: install.sh
-
 ```bash
 git clone https://github.com/ianalloway/openclaw-skills
 cd openclaw-skills
 ./install.sh --bundle developer-tools
 ```
 
-### Option B: Direct curl-pipe
+Run from the checkout so the installer can copy every skill folder. The default
+destination is `~/.openclaw/skills/`; use `--dest DIR` to choose another directory
+outside the checkout. Existing selected skill folders are replaced.
+
+`screenshot-annotator` requires macOS and Peekaboo; see the [skill instructions](../screenshot-annotator/SKILL.md).
+
+## Example requests
+
+These skills guide OpenClaw; the installer copies their instructions rather
+than creating commands named `git-helper` or `security-scanner`.
+
+- “Help me undo my last local commit while keeping its changes.”
+- “Annotate this screenshot so I can describe the bug clearly.”
+- “Scan this project's dependencies and source for common security issues.”
+- “Run a local juryrig dry run on cases.json and explain the audit results.”
+
+The underlying tools still need to be installed. For example, the judge-audit
+workflow uses the actual `juryrig` CLI:
 
 ```bash
-curl -sL https://raw.githubusercontent.com/ianalloway/openclaw-skills/main/install.sh | \
-  bash -s -- --bundle developer-tools
-```
-
-### Option C: Manual copy
-
-```bash
-cp -r git-helper screenshot-annotator security-scanner judge-audit ~/.openclaw/skills/
-```
-
-> `screenshot-annotator` requires macOS and Peekaboo: `brew install openclaw/tap/peekaboo`.
-
-## Example usage
-
-```bash
-# Recover from a bad commit
-$ git-helper undo-last-commit
-# (see recipes for soft reset, reflog, and stash recovery)
-
-# Annotate a bug screenshot
-$ peekaboo see --annotate --path /tmp/bug.png
-
-# Scan the current project
-$ security-scanner .
-
-# Audit an LLM-as-judge (MockJudge dry-run)
-$ pip install juryrig && juryrig cases.json
+pip install juryrig
+juryrig cases.json
 ```
 
 ## Author

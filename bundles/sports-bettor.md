@@ -26,68 +26,34 @@ Install all four and you have a system that:
 
 ## Install
 
-### Option A: ClawHub (recommended)
-
-```bash
-clawhub install bundle/sports-bettor
-```
-
-Or via the ClawHub config:
-
-```yaml
-# ~/.config/clawhub/bundles.yaml
-bundles:
-  sports-bettor:
-    - sports-odds
-    - kelly-criterion
-    - bet-journal
-    - clv-journal
-```
-
-### Option B: Manual
-
 ```bash
 git clone https://github.com/ianalloway/openclaw-skills
 cd openclaw-skills
-clawhub install ./sports-odds ./kelly-criterion ./bet-journal ./clv-journal
+./install.sh --bundle sports-bettor
 ```
 
-### Option C: Direct curl-pipe
+Run from the checkout so the installer can copy every skill folder. The default
+destination is `~/.openclaw/skills/`; use `--dest DIR` to choose another directory
+outside the checkout. Existing selected skill folders are replaced.
 
-```bash
-curl -sL https://raw.githubusercontent.com/ianalloway/openclaw-skills/main/install.sh | \
-  bash -s -- --bundle sports-bettor
-```
+Live odds require a [The Odds API](https://the-odds-api.com/) key.
 
-## Example usage
+## Example requests
 
-```bash
-# Get live odds for tonight's Lakers game
-$ sports-odds lakers warriors
-LAL vs GSW · Tonight 7:30pm PT
-  Moneyline: LAL +145 / GSW -165
-  Spread: LAL +3.5 (-110) / GSW -3.5 (-110)
-  Total: 224.5 (-110/-110)
+These skills guide OpenClaw; installation does not add shell commands named
+`sports-odds` or `bet-journal`. Ask the assistant to run the documented workflow:
 
-# Calculate Kelly size
-$ kelly-criterion --edge 0.58 --odds 145 --bankroll 1000
-Edge: 58.0% | American odds: +145
-Kelly fraction: 6.2% (full)
-Recommendation: 0.25 Kelly = $15.50 (1.55% of bankroll)
-Rationale: Edge is real but modest, fractional Kelly reduces variance
+| Step | Request |
+|------|---------|
+| Compare prices | “Get current Lakers–Warriors odds and show the best price by sportsbook.” |
+| Size a position | “Calculate quarter-Kelly for a 58% win estimate at -110 with a $1,000 bankroll.” |
+| Record the ticket | “Log a $29.50 Lakers moneyline bet at -110 with my 58% estimate.” |
+| Track the close | “Record the closing odds for that same moneyline ticket and calculate CLV.” |
+| Review results | “Show my settled-bet P&L and beat-close rate by sportsbook.” |
 
-# Log the outcome ticket
-$ bet-journal add --game "LAL vs GSW" --bet "LAL +3.5" --odds -110 --stake 15.50 --model-prob 0.58
-Bet #247 logged · 0.43% of bankroll
-
-# Log CLV entry (fill close at tip-off)
-$ clv-journal entry --event "LAL vs GSW" --side "LAL +3.5" --odds -110 --book FanDuel
-Logged entry a1b2c3d4 · fill close later
-
-# After close
-$ clv-journal close a1b2c3d4 --odds -125 --line 2.5
-CLV +2.17 prob pts · Beat close: Y
-```
+The sizing example is $29.50 at quarter-Kelly (11.8% full Kelly). It depends on
+the supplied 58% probability estimate; the skill does not verify that estimate.
+Compare entry and closing prices for the same market and selection.
 
 ## Author
 

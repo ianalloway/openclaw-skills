@@ -20,43 +20,28 @@ Install all three and you can check prices, read the room, and compute the rebal
 
 ## Install
 
-### Option A: install.sh
-
 ```bash
 git clone https://github.com/ianalloway/openclaw-skills
 cd openclaw-skills
 ./install.sh --bundle crypto-watcher
 ```
 
-### Option B: Direct curl-pipe
+Run from the checkout so the installer can copy every skill folder. The default
+destination is `~/.openclaw/skills/`; use `--dest DIR` to choose another directory
+outside the checkout. Existing selected skill folders are replaced.
 
-```bash
-curl -sL https://raw.githubusercontent.com/ianalloway/openclaw-skills/main/install.sh | \
-  bash -s -- --bundle crypto-watcher
-```
+## Example requests
 
-### Option C: Manual copy
+These skills guide OpenClaw; installation does not add standalone shell
+commands. Try these requests:
 
-```bash
-cp -r crypto-price market-sentiment portfolio-rebalancer ~/.openclaw/skills/
-```
+- “Get current Bitcoin, Ethereum, and Solana prices with the source and timestamp.”
+- “Summarize Bitcoin market sentiment and show the inputs behind the score.”
+- “Using my supplied holdings, calculate trades to reach 60% BTC, 30% ETH, and 10% SOL.”
+- “Show a buy-only alternative to those rebalancing suggestions.”
 
-## Example usage
-
-```bash
-# Live prices
-$ crypto-price bitcoin ethereum solana
-BTC $97,450 (+2.1%) · ETH $3,620 (+1.4%) · SOL $178 (-0.6%)
-
-# Sentiment check before sizing
-$ market-sentiment btc
-Fear & Greed: 72 (Greed) · Reddit mentions elevated · Composite: mildly bullish
-
-# Rebalance to targets
-$ portfolio-rebalancer --targets btc=60,eth=30,sol=10 --holdings btc=1.2,eth=8,sol=40
-Drift: BTC +4.2% · ETH -2.1% · SOL -2.1%
-Suggested: sell 0.05 BTC · buy 0.4 ETH · buy 3 SOL
-```
+Rebalancing output is a proposed allocation plan. Review prices, fees, and the
+holdings used before acting on it.
 
 ## Author
 
