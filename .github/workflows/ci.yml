@@ -15,3 +15,6 @@ jobs:
 
       - name: Run skill smoke tests
         run: python3 tests/validate_skills.py
+
+      - name: Test safe installation
+        run: python3 -m unittest discover -s tests -p 'test_*.py'

@@ -12,7 +12,7 @@ This repo currently includes **17 skills**.
 
 ## 📦 Featured Bundles
 
-Curated sets of skills that solve a real problem end-to-end. Install one bundle, get a working system.
+Curated sets of skills for common workflows. Each bundle lists its tools and setup requirements.
 
 ### 🎯 [Sports Bettor](./bundles/sports-bettor.md)
 **Real-time odds → Kelly-sized bet → journaled P&L + CLV. The full loop.**
@@ -23,7 +23,7 @@ Curated sets of skills that solve a real problem end-to-end. Install one bundle,
 - `clv-journal` — Entry vs. close CLV pts and beat-close rate
 
 ### 💰 [Crypto Watcher](./bundles/crypto-watcher.md)
-**Track prices, read sentiment, rebalance automatically.**
+**Track prices, read sentiment, and calculate rebalancing suggestions.**
 
 - `crypto-price` — Real-time prices across exchanges
 - `market-sentiment` — Sentiment scoring from news + social
@@ -225,13 +225,14 @@ cd openclaw-skills
 ./install.sh --bundle developer-tools
 ```
 
-One-liner (no clone required for a bundle):
+Run the installer from the checkout: it copies the selected skill folders from
+this repository. Downloading only `install.sh` does not include those folders.
 
-```bash
-curl -sL https://raw.githubusercontent.com/ianalloway/openclaw-skills/main/install.sh |   bash -s -- --bundle sports-bettor
-```
-
-Skills install to `~/.openclaw/skills/` by default (override with `--dest DIR` or `OPENCLAW_SKILLS_DIR`).
+Skills install to `~/.openclaw/skills/` by default (override with `--dest DIR` or
+`OPENCLAW_SKILLS_DIR`). The destination must be outside this checkout. Existing
+selected skills are replaced, so keep local customizations in version control.
+The installer validates all requested names and stages their copies before
+replacing installed folders; unrelated skills are left in place.
 
 ### Manual copy
 
