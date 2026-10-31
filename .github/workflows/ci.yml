@@ -18,3 +18,31 @@ jobs:
 
       - name: Test safe installation
         run: python3 -m unittest discover -s tests -p 'test_*.py'
+
+  upstream-format:
+    name: Upstream skill format (OpenClaw parser)
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v6
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v7
+        with:
+          node-version: 24
+
+      - name: Install pinned OpenClaw
+        run: >-
+          npm install --prefix "$RUNNER_TEMP/openclaw" --no-save --no-audit --no-fund
+          --ignore-scripts --loglevel=error "openclaw@$(cat .openclaw-version)"
+
+      - name: Check skills against the pinned parser
+        run: node scripts/check_upstream_format.mjs "$RUNNER_TEMP/openclaw/node_modules/openclaw"
+
+      - name: Preview against openclaw@latest (informational)
+        continue-on-error: true
+        run: |
+          npm install --prefix "$RUNNER_TEMP/openclaw-latest" --no-save --no-audit --no-fund \
+            --ignore-scripts --loglevel=error openclaw@latest
+          node scripts/check_upstream_format.mjs "$RUNNER_TEMP/openclaw-latest/node_modules/openclaw"

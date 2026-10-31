@@ -12,7 +12,7 @@ import unittest
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
-SKIP_DIRS = {".git", ".github", "bundles", "tests"}
+SKIP_DIRS = {".git", ".github", "bundles", "scripts", "tests"}
 FRONTMATTER_RE = re.compile(r"\A---\s*\n(.*?)\n---\s*\n", re.DOTALL)
 H1_RE = re.compile(r"^#\s+\S", re.MULTILINE)
 STALE_COUNT_RE = re.compile(r"\b(\d+)\+\s+skills?\b", re.IGNORECASE)

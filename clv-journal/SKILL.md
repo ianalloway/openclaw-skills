@@ -4,15 +4,14 @@ description: "Log bets with entry + closing odds, compute closing-line value (CL
 homepage: https://github.com/ianalloway/openclaw-skills
 metadata:
   {
-    "openclaw":
-      {
-        "emoji": "📈",
-        "requires": { "bins": ["python3"] },
-        "credentials": [],
-      },
+    "openclaw": {
+      "emoji": "📈",
+      "requires": {
+        "bins": ["python3"]
+      }
+    }
   }
 ---
-
 # CLV Journal
 
 Closing Line Value (CLV) is the process metric that predicts long-term betting edge. This skill keeps a **dedicated CLV journal** — entry price vs. close — separate from win/loss P&L. Beat the close consistently and the results follow.
