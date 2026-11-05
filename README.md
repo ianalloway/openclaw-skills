@@ -4,9 +4,19 @@
 ![CI](https://github.com/ianalloway/openclaw-skills/actions/workflows/ci.yml/badge.svg)
 ![OpenClaw](https://img.shields.io/badge/OpenClaw-AI_Agent-purple)
 ![License](https://img.shields.io/badge/License-MIT-green.svg)
-[![ClawHub](https://img.shields.io/badge/ClawHub-3_of_17_published-orange)](#published-on-clawhub)
+[![ClawHub](https://img.shields.io/badge/ClawHub-3_published-orange)](#published-on-clawhub)
 
-Custom skills for [OpenClaw](https://github.com/openclaw/openclaw) - the open-source AI assistant.
+**17 tested, installable skills that give the [OpenClaw](https://github.com/openclaw/openclaw) AI assistant sports-analytics, market-data and LLM-judge-auditing tools.**
+
+### Quickstart
+
+```bash
+git clone https://github.com/ianalloway/openclaw-skills
+cd openclaw-skills
+./install.sh --bundle sports-bettor        # or: ./install.sh sports-odds kelly-criterion
+```
+
+Three skills are also on ClawHub (`openclaw skills install @ianalloway/sports-odds`); see [Installation](#installation) for every option.
 
 This repo currently includes **17 skills**. The focus is **sports betting analytics**
 (odds, Kelly sizing, bet and CLV journals, DFS), **data and markets** (terminal
