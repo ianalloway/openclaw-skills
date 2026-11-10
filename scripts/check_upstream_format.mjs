@@ -12,7 +12,7 @@ import { join, resolve, dirname } from "node:path";
 import { fileURLToPath, pathToFileURL } from "node:url";
 
 const ROOT = resolve(dirname(fileURLToPath(import.meta.url)), "..");
-const SKIP = new Set(["bundles", "tests", "scripts", "node_modules"]);
+const SKIP = new Set(["bundles", "tests", "scripts", "themes", "node_modules"]);
 
 // ClawHub's registry reads a few keys the OpenClaw runtime ignores. Keep this in
 // sync with openclaw/clawhub docs/skill-format.md ("Full field reference").
