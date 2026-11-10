@@ -1,0 +1,41 @@
+{
+  "name": "openclaw-theme-neon",
+  "version": "0.2.0",
+  "description": "Neon cyberpunk appearance themes for OpenClaw (plugin themes for the Control UI).",
+  "type": "module",
+  "license": "MIT",
+  "author": "Ian Alloway",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ianalloway/openclaw-theme-neon.git"
+  },
+  "keywords": [
+    "openclaw",
+    "openclaw-plugin",
+    "theme",
+    "cyberpunk",
+    "neon",
+    "dracula"
+  ],
+  "files": [
+    "index.js",
+    "openclaw.plugin.json",
+    "themes",
+    "README.md",
+    "LICENSE"
+  ],
+  "peerDependencies": {
+    "openclaw": ">=2026.10.9"
+  },
+  "openclaw": {
+    "extensions": [
+      "./index.js"
+    ],
+    "compat": {
+      "pluginApi": ">=2026.10.9"
+    },
+    "install": {
+      "minHostVersion": ">=2026.10.9"
+    }
+  }
+}

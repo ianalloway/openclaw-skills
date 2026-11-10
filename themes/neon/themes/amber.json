@@ -1,0 +1,35 @@
+{
+  "name": "Neon Amber",
+  "description": "Retro amber phosphor on warm black with teal highlights and monospace type.",
+  "workingIndicator": "dots",
+  "workingPhrases": [
+    "Jacking in",
+    "Decrypting",
+    "Tracing the signal",
+    "Rerouting",
+    "Compiling"
+  ],
+  "dark": {
+    "background": "#0c0a06",
+    "foreground": "#ffe9b8",
+    "card": "#14100a",
+    "card-foreground": "#ffe9b8",
+    "popover": "#221a09",
+    "popover-foreground": "#ffe9b8",
+    "primary": "#ffb000",
+    "primary-foreground": "#0c0a06",
+    "secondary": "#2e2105",
+    "secondary-foreground": "#ffe9b8",
+    "muted": "#1d1606",
+    "muted-foreground": "#c9a46a",
+    "accent": "#14b8a6",
+    "accent-foreground": "#0c0a06",
+    "destructive": "#ef4444",
+    "destructive-foreground": "#0c0a06",
+    "border": "rgba(255, 176, 0, 0.22)",
+    "input": "rgba(255, 176, 0, 0.40)",
+    "ring": "#ffb000",
+    "font-sans": "\"IBM Plex Mono\", \"JetBrains Mono\", \"Fira Code\", ui-monospace, monospace",
+    "font-mono": "\"IBM Plex Mono\", \"JetBrains Mono\", \"Fira Code\", ui-monospace, monospace"
+  }
+}

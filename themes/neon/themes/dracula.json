@@ -1,0 +1,35 @@
+{
+  "name": "Neon Dracula",
+  "description": "The official Dracula palette: green controls, pink highlights, purple-grey surfaces, monospace type.",
+  "workingIndicator": "dots",
+  "workingPhrases": [
+    "Jacking in",
+    "Decrypting",
+    "Tracing the signal",
+    "Rerouting",
+    "Compiling"
+  ],
+  "dark": {
+    "background": "#282a36",
+    "foreground": "#f8f8f2",
+    "card": "#21222c",
+    "card-foreground": "#f8f8f2",
+    "popover": "#242f31",
+    "popover-foreground": "#f8f8f2",
+    "primary": "#50fa7b",
+    "primary-foreground": "#282a36",
+    "secondary": "#2e4740",
+    "secondary-foreground": "#f8f8f2",
+    "muted": "#2b393b",
+    "muted-foreground": "#bd93f9",
+    "accent": "#ff79c6",
+    "accent-foreground": "#282a36",
+    "destructive": "#ff5555",
+    "destructive-foreground": "#282a36",
+    "border": "rgba(98, 114, 164, 0.45)",
+    "input": "rgba(139, 233, 253, 0.40)",
+    "ring": "#50fa7b",
+    "font-sans": "\"IBM Plex Mono\", \"JetBrains Mono\", \"Fira Code\", ui-monospace, monospace",
+    "font-mono": "\"IBM Plex Mono\", \"JetBrains Mono\", \"Fira Code\", ui-monospace, monospace"
+  }
+}

@@ -1,0 +1,35 @@
+/* neon-blue — cyan / electric purple ocean rig */
+:root {
+  --neon-primary:     #00d4ff;
+  --neon-secondary:   #a855f7;
+  --neon-accent:      #67e8f9;
+  --neon-warn:        #fbbf24;
+  --neon-error:       #f87171;
+
+  --neon-bg:          #05080f;
+  --neon-bg-soft:     #0a1220;
+  --neon-surface:     rgba(0, 212, 255, 0.04);
+  --neon-surface-mid: rgba(0, 212, 255, 0.08);
+  --neon-surface-hi:  rgba(0, 212, 255, 0.14);
+  --neon-overlay:     rgba(0, 0, 0, 0.72);
+
+  --neon-border:      rgba(0, 212, 255, 0.20);
+  --neon-border-mid:  rgba(0, 212, 255, 0.38);
+  --neon-border-hi:   rgba(0, 212, 255, 0.65);
+
+  --neon-glow:        0 0 12px rgba(0, 212, 255, 0.45),
+                      0 0 30px rgba(0, 212, 255, 0.15);
+  --neon-glow-sm:     0 0 6px  rgba(0, 212, 255, 0.35);
+  --neon-glow-pink:   0 0 12px rgba(168, 85, 247, 0.45),
+                      0 0 30px rgba(168, 85, 247, 0.15);
+  --neon-glow-cyan:   0 0 12px rgba(0, 212, 255, 0.45);
+  --neon-text-glow:   0 0 8px  rgba(0, 212, 255, 0.70);
+
+  --neon-text:        #d7f7ff;
+  --neon-text-mid:    #7eb8c9;
+  --neon-text-soft:   #4a7a8a;
+  --neon-text-dim:    #2a4a55;
+
+  --neon-scrollbar-track: #05080f;
+  --neon-scrollbar-thumb: rgba(0, 212, 255, 0.25);
+}

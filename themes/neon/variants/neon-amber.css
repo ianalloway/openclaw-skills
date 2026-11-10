@@ -1,0 +1,35 @@
+/* neon-amber — amber / teal retro terminal */
+:root {
+  --neon-primary:     #ffb000;
+  --neon-secondary:   #14b8a6;
+  --neon-accent:      #fde68a;
+  --neon-warn:        #f59e0b;
+  --neon-error:       #ef4444;
+
+  --neon-bg:          #0c0a06;
+  --neon-bg-soft:     #14100a;
+  --neon-surface:     rgba(255, 176, 0, 0.04);
+  --neon-surface-mid: rgba(255, 176, 0, 0.08);
+  --neon-surface-hi:  rgba(255, 176, 0, 0.14);
+  --neon-overlay:     rgba(0, 0, 0, 0.72);
+
+  --neon-border:      rgba(255, 176, 0, 0.22);
+  --neon-border-mid:  rgba(255, 176, 0, 0.40);
+  --neon-border-hi:   rgba(255, 176, 0, 0.68);
+
+  --neon-glow:        0 0 12px rgba(255, 176, 0, 0.45),
+                      0 0 30px rgba(255, 176, 0, 0.15);
+  --neon-glow-sm:     0 0 6px  rgba(255, 176, 0, 0.35);
+  --neon-glow-pink:   0 0 12px rgba(20, 184, 166, 0.45),
+                      0 0 30px rgba(20, 184, 166, 0.15);
+  --neon-glow-cyan:   0 0 12px rgba(253, 230, 138, 0.35);
+  --neon-text-glow:   0 0 8px  rgba(255, 176, 0, 0.70);
+
+  --neon-text:        #ffe9b8;
+  --neon-text-mid:    #c9a46a;
+  --neon-text-soft:   #8a6a3a;
+  --neon-text-dim:    #4a3a1a;
+
+  --neon-scrollbar-track: #0c0a06;
+  --neon-scrollbar-thumb: rgba(255, 176, 0, 0.28);
+}

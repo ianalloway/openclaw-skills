@@ -1,0 +1,35 @@
+{
+  "name": "Neon Blue",
+  "description": "Deep navy ocean rig with electric cyan controls, purple highlights, and monospace type.",
+  "workingIndicator": "dots",
+  "workingPhrases": [
+    "Jacking in",
+    "Decrypting",
+    "Tracing the signal",
+    "Rerouting",
+    "Compiling"
+  ],
+  "dark": {
+    "background": "#05080f",
+    "foreground": "#d7f7ff",
+    "card": "#0a1220",
+    "card-foreground": "#d7f7ff",
+    "popover": "#091e2d",
+    "popover-foreground": "#d7f7ff",
+    "primary": "#00d4ff",
+    "primary-foreground": "#05080f",
+    "secondary": "#042531",
+    "secondary-foreground": "#d7f7ff",
+    "muted": "#051620",
+    "muted-foreground": "#7eb8c9",
+    "accent": "#a855f7",
+    "accent-foreground": "#05080f",
+    "destructive": "#f87171",
+    "destructive-foreground": "#05080f",
+    "border": "rgba(0, 212, 255, 0.20)",
+    "input": "rgba(0, 212, 255, 0.38)",
+    "ring": "#00d4ff",
+    "font-sans": "\"IBM Plex Mono\", \"JetBrains Mono\", \"Fira Code\", ui-monospace, monospace",
+    "font-mono": "\"IBM Plex Mono\", \"JetBrains Mono\", \"Fira Code\", ui-monospace, monospace"
+  }
+}
