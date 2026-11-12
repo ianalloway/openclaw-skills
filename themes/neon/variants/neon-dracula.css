@@ -1,0 +1,36 @@
+/* neon-dracula — official Dracula palette mapping
+   https://draculatheme.com/contribute */
+:root {
+  --neon-primary:     #50fa7b;   /* Green */
+  --neon-secondary:   #ff79c6;   /* Pink */
+  --neon-accent:      #8be9fd;   /* Cyan */
+  --neon-warn:        #f1fa8c;   /* Yellow */
+  --neon-error:       #ff5555;   /* Red */
+
+  --neon-bg:          #282a36;   /* Background */
+  --neon-bg-soft:     #21222c;
+  --neon-surface:     rgba(68, 71, 90, 0.45);   /* Current Line tint */
+  --neon-surface-mid: rgba(68, 71, 90, 0.65);
+  --neon-surface-hi:  rgba(189, 147, 249, 0.18); /* Purple wash */
+  --neon-overlay:     rgba(40, 42, 54, 0.85);
+
+  --neon-border:      rgba(98, 114, 164, 0.45);  /* Comment */
+  --neon-border-mid:  rgba(139, 233, 253, 0.40);
+  --neon-border-hi:   rgba(80, 250, 123, 0.65);
+
+  --neon-glow:        0 0 12px rgba(80, 250, 123, 0.40),
+                      0 0 28px rgba(189, 147, 249, 0.18);
+  --neon-glow-sm:     0 0 6px  rgba(80, 250, 123, 0.35);
+  --neon-glow-pink:   0 0 12px rgba(255, 121, 198, 0.45),
+                      0 0 30px rgba(255, 121, 198, 0.15);
+  --neon-glow-cyan:   0 0 12px rgba(139, 233, 253, 0.45);
+  --neon-text-glow:   0 0 8px  rgba(80, 250, 123, 0.55);
+
+  --neon-text:        #f8f8f2;   /* Foreground */
+  --neon-text-mid:    #bd93f9;   /* Purple */
+  --neon-text-soft:   #6272a4;   /* Comment */
+  --neon-text-dim:    #44475a;   /* Current Line */
+
+  --neon-scrollbar-track: #21222c;
+  --neon-scrollbar-thumb: rgba(98, 114, 164, 0.55);
+}

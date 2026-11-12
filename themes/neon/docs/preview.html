@@ -1,0 +1,385 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>openclaw-theme-neon — preview</title>
+  <!--
+    Asset paths are relative to this file in docs/.
+    Works on GitHub Pages project sites (.../openclaw-theme-neon/docs/...)
+    and when the site is served from the repo root (local http.server or Pages /).
+  -->
+  <link id="theme-link" rel="stylesheet" href="../theme.css" />
+  <link id="variant-link" rel="stylesheet" href="" />
+  <style>
+    body { margin: 0; min-height: 100vh; position: relative; }
+    .preview-layout {
+      position: relative;
+      z-index: 1;
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) minmax(220px, 280px);
+      gap: 0;
+      min-height: 100vh;
+    }
+    @media (max-width: 860px) {
+      .preview-layout { grid-template-columns: 1fr; }
+      .var-editor { border-left: none !important; border-top: 1px solid var(--neon-border); }
+    }
+    .preview-shell {
+      max-width: 960px;
+      margin: 0 auto;
+      padding: 32px 20px 64px;
+      display: grid;
+      gap: 20px;
+      width: 100%;
+      box-sizing: border-box;
+    }
+    .preview-header {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .preview-controls {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      align-items: center;
+    }
+    .preview-controls label {
+      color: var(--neon-text-mid);
+      font-size: 0.85em;
+    }
+    .preview-controls select,
+    .preview-controls button,
+    .var-editor button,
+    .var-editor input[type="text"] {
+      font-family: var(--neon-font-mono);
+      background: var(--neon-surface);
+      color: var(--neon-text);
+      border: 1px solid var(--neon-border-mid);
+      border-radius: var(--neon-radius-sm);
+      padding: 8px 12px;
+    }
+    .row { display: flex; flex-wrap: wrap; gap: 12px; align-items: center; }
+    .grid-2 {
+      display: grid;
+      gap: 16px;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    }
+    .hint { color: var(--neon-text-soft); font-size: 0.85em; }
+    footer a { margin-right: 12px; }
+    .var-editor {
+      background: var(--neon-bg-soft);
+      border-left: 1px solid var(--neon-border);
+      padding: 20px 16px 40px;
+      position: sticky;
+      top: 0;
+      align-self: start;
+      max-height: 100vh;
+      overflow: auto;
+    }
+    .var-editor h2 {
+      margin: 0 0 8px;
+      font-size: 1rem;
+    }
+    .var-editor .hint { margin: 0 0 16px; }
+    .var-row {
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 8px;
+      align-items: center;
+      margin-bottom: 12px;
+    }
+    .var-row label {
+      grid-column: 1 / -1;
+      font-size: 0.75em;
+      color: var(--neon-text-mid);
+      word-break: break-all;
+    }
+    .var-row input[type="color"] {
+      width: 42px;
+      height: 36px;
+      padding: 0;
+      border: 1px solid var(--neon-border-mid);
+      border-radius: var(--neon-radius-sm);
+      background: transparent;
+      cursor: pointer;
+    }
+    .var-row input[type="text"] {
+      width: 100%;
+      min-width: 0;
+      padding: 6px 8px;
+      font-size: 0.8em;
+    }
+    .var-editor .actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 8px;
+    }
+  </style>
+</head>
+<body>
+  <canvas class="neon-matrix-rain" id="matrix-rain"></canvas>
+
+  <div class="preview-layout">
+    <main class="preview-shell">
+      <header class="preview-header neon-panel" style="padding: 16px 20px;">
+        <div>
+          <h1 style="margin: 0 0 6px;">OPENCLAW NEON</h1>
+          <p class="hint" style="margin: 0;">Live theme preview — variants, matrix rain, CSS variables.</p>
+        </div>
+        <div class="preview-controls">
+          <label for="variant">Variant</label>
+          <select id="variant" aria-label="Theme variant">
+            <option value="">neon (default)</option>
+            <option value="neon-blue">neon-blue</option>
+            <option value="neon-amber">neon-amber</option>
+            <option value="neon-red">neon-red</option>
+            <option value="neon-dracula">neon-dracula</option>
+          </select>
+          <button type="button" id="toggle-rain" class="neon-btn" aria-pressed="true" aria-controls="matrix-rain">Rain: on</button>
+          <button type="button" id="toggle-editor" class="neon-btn" aria-expanded="true" aria-controls="var-editor">Variables</button>
+        </div>
+      </header>
+
+      <section class="neon-terminal">
+        <div class="neon-terminal-content">
+          <p style="margin: 0 0 8px; color: var(--neon-text-soft);">session · preview</p>
+          <p style="margin: 0;">&gt; How can I help you today?</p>
+          <span class="neon-cursor" aria-hidden="true"></span>
+        </div>
+      </section>
+
+      <section class="grid-2">
+        <div class="neon-panel" style="padding: 16px;">
+          <h2 style="margin-top: 0;">Panels</h2>
+          <p>Dark-glass surfaces with glow on hover. Use <code>.neon-panel</code> / <code>.neon-panel-active</code>.</p>
+          <div class="row">
+            <span class="neon-badge neon-badge-online">online</span>
+            <span class="neon-badge" style="color: var(--neon-secondary);">hot</span>
+          </div>
+        </div>
+        <div class="neon-panel neon-panel-active" style="padding: 16px;">
+          <h2 style="margin-top: 0;">Active panel</h2>
+          <p>Primary border + glow for focused surfaces.</p>
+          <div class="row">
+            <button class="neon-btn neon-btn-primary" type="button">Primary</button>
+            <button class="neon-btn neon-btn-pink" type="button">Secondary</button>
+          </div>
+        </div>
+      </section>
+
+      <section class="neon-panel" style="padding: 16px;">
+        <h2 style="margin-top: 0;">Messages</h2>
+        <div class="neon-message neon-message-user">Can you restyle my OpenClaw UI?</div>
+        <div class="neon-message neon-message-assistant">
+          Drop <code>theme.css</code>, <code>variables.css</code>, and <code>matrix-rain.js</code> into your themes folder, then set <code>theme: neon</code>.
+        </div>
+        <div class="neon-prompt" style="margin-top: 12px;">
+          <input class="neon-input" placeholder="Type a prompt…" aria-label="Prompt" />
+        </div>
+      </section>
+
+      <footer class="hint">
+        <a href="https://github.com/ianalloway/openclaw-theme-neon">GitHub repo</a>
+        <a href="https://github.com/ianalloway/openclaw-theme-neon#readme">README</a>
+        Paths resolve from <code>docs/</code> → repo root (<code>../theme.css</code>), so this page works on
+        GitHub Pages at <code>/openclaw-theme-neon/docs/</code> and via a local static server from the repo root.
+      </footer>
+    </main>
+
+    <aside class="var-editor neon-panel" id="var-editor" aria-label="CSS variable editor" style="border-radius: 0; backdrop-filter: none;">
+      <h2>CSS variables</h2>
+      <p class="hint">Edit live tokens. Reset clears overrides (variant stylesheet still applies).</p>
+      <div id="var-fields"></div>
+      <div class="actions">
+        <button type="button" id="reset-vars" class="neon-btn">Reset</button>
+      </div>
+    </aside>
+  </div>
+
+  <script>
+    (function () {
+      // Repo root = parent of this HTML's directory (docs/ → ../).
+      // Resolves correctly for project Pages (/openclaw-theme-neon/docs/...) and site root.
+      const ASSET_BASE = new URL('../', window.location.href);
+
+      function asset(path) {
+        return new URL(path.replace(/^\//, ''), ASSET_BASE).href;
+      }
+
+      // Ensure theme + script hrefs use absolute resolved URLs (helps odd base cases).
+      const themeLink = document.getElementById('theme-link');
+      themeLink.href = asset('theme.css');
+
+      const script = document.createElement('script');
+      script.src = asset('matrix-rain.js');
+      document.body.appendChild(script);
+
+      const variantSelect = document.getElementById('variant');
+      const variantLink = document.getElementById('variant-link');
+      const rainCanvas = document.getElementById('matrix-rain');
+      const toggleRain = document.getElementById('toggle-rain');
+      const toggleEditor = document.getElementById('toggle-editor');
+      const varEditor = document.getElementById('var-editor');
+      const varFields = document.getElementById('var-fields');
+      const resetVars = document.getElementById('reset-vars');
+      let rainEnabled = true;
+
+      const EDITABLE = [
+        { key: '--neon-primary', type: 'color' },
+        { key: '--neon-secondary', type: 'color' },
+        { key: '--neon-accent', type: 'color' },
+        { key: '--neon-bg', type: 'color' },
+        { key: '--neon-text', type: 'color' },
+        { key: '--matrix-density', type: 'text' },
+        { key: '--matrix-speed', type: 'text' },
+        { key: '--matrix-opacity', type: 'text' },
+      ];
+
+      function cssColorToHex(value) {
+        const v = (value || '').trim();
+        if (/^#[0-9a-fA-F]{6}$/.test(v)) return v;
+        if (/^#[0-9a-fA-F]{3}$/.test(v)) {
+          return '#' + v[1] + v[1] + v[2] + v[2] + v[3] + v[3];
+        }
+        const tmp = document.createElement('div');
+        tmp.style.color = v;
+        document.body.appendChild(tmp);
+        const computed = getComputedStyle(tmp).color;
+        document.body.removeChild(tmp);
+        const m = computed && computed.match(/rgba?\((\d+),\s*(\d+),\s*(\d+)/);
+        if (!m) return '#000000';
+        return (
+          '#' +
+          [m[1], m[2], m[3]]
+            .map((n) => Number(n).toString(16).padStart(2, '0'))
+            .join('')
+        );
+      }
+
+      function readVar(name) {
+        return getComputedStyle(document.documentElement).getPropertyValue(name).trim();
+      }
+
+      function applyRainConfig() {
+        if (window.MatrixRain) {
+          MatrixRain.destroy();
+          rainCanvas.style.display = rainEnabled ? '' : 'none';
+          if (rainEnabled) MatrixRain.init();
+        }
+        toggleRain.setAttribute('aria-pressed', String(rainEnabled));
+        toggleRain.textContent = rainEnabled ? 'Rain: on' : 'Rain: off';
+      }
+
+      function buildEditor() {
+        varFields.innerHTML = '';
+        EDITABLE.forEach(({ key, type }) => {
+          const row = document.createElement('div');
+          row.className = 'var-row';
+          const label = document.createElement('label');
+          label.textContent = key;
+          label.htmlFor = 'var-' + key;
+          row.appendChild(label);
+
+          const current = readVar(key);
+
+          if (type === 'color') {
+            const color = document.createElement('input');
+            color.type = 'color';
+            color.id = 'var-' + key;
+            color.value = cssColorToHex(current);
+            color.title = current;
+            const text = document.createElement('input');
+            text.type = 'text';
+            text.setAttribute('aria-label', key + ' color value');
+            text.value = current || color.value;
+            const sync = (val) => {
+              document.documentElement.style.setProperty(key, val);
+              text.value = val;
+              if (key === '--neon-primary' || key.startsWith('--matrix-')) {
+                applyRainConfig();
+              }
+            };
+            color.addEventListener('input', () => {
+              sync(color.value);
+            });
+            text.addEventListener('change', () => {
+              sync(text.value.trim());
+              color.value = cssColorToHex(text.value.trim());
+            });
+            row.appendChild(text);
+            row.appendChild(color);
+          } else {
+            const text = document.createElement('input');
+            text.type = 'text';
+            text.id = 'var-' + key;
+            text.value = current;
+            text.addEventListener('change', () => {
+              document.documentElement.style.setProperty(key, text.value.trim());
+              applyRainConfig();
+            });
+            row.appendChild(text);
+          }
+          varFields.appendChild(row);
+        });
+      }
+
+      function clearInlineOverrides() {
+        EDITABLE.forEach(({ key }) => {
+          document.documentElement.style.removeProperty(key);
+        });
+        // Also clear any primary set by MatrixRain.setVariant
+        document.documentElement.style.removeProperty('--neon-primary');
+      }
+
+      function onVariantReady() {
+        clearInlineOverrides();
+        buildEditor();
+        applyRainConfig();
+      }
+
+      variantSelect.addEventListener('change', () => {
+        const v = variantSelect.value;
+        if (!v) {
+          variantLink.removeAttribute('href');
+          variantLink.onload = null;
+          onVariantReady();
+          return;
+        }
+        variantLink.onload = onVariantReady;
+        variantLink.href = asset('variants/' + v + '.css');
+        // Cached stylesheet may not fire load again
+        if (variantLink.sheet) {
+          onVariantReady();
+        }
+      });
+
+      toggleRain.addEventListener('click', () => {
+        rainEnabled = !rainEnabled;
+        applyRainConfig();
+      });
+
+      toggleEditor.addEventListener('click', () => {
+        const hidden = varEditor.style.display === 'none';
+        varEditor.style.display = hidden ? '' : 'none';
+        toggleEditor.setAttribute('aria-expanded', String(hidden));
+      });
+
+      resetVars.addEventListener('click', () => {
+        clearInlineOverrides();
+        buildEditor();
+        applyRainConfig();
+      });
+
+      script.addEventListener('load', () => {
+        buildEditor();
+        applyRainConfig();
+      });
+    })();
+  </script>
+</body>
+</html>

@@ -1,0 +1,64 @@
+/* openclaw-theme-neon — variables.css
+   Neon cyberpunk theme for OpenClaw
+   by Ian Alloway — MIT License */
+
+:root {
+  /* ── Color Palette ─────────────────────────────── */
+  --neon-primary:     #00ff41;                        /* Matrix green */
+  --neon-secondary:   #ff0090;                        /* Hot pink */
+  --neon-accent:      #00d4ff;                        /* Cyan */
+  --neon-warn:        #ffcc00;                        /* Amber warning */
+  --neon-error:       #ff3333;                        /* Red alert */
+
+  /* ── Backgrounds ───────────────────────────────── */
+  --neon-bg:          #090909;
+  --neon-bg-soft:     #0e0e0e;
+  --neon-surface:     rgba(0, 255, 65, 0.04);
+  --neon-surface-mid: rgba(0, 255, 65, 0.07);
+  --neon-surface-hi:  rgba(0, 255, 65, 0.12);
+  --neon-overlay:     rgba(0, 0, 0, 0.72);
+
+  /* ── Borders ───────────────────────────────────── */
+  --neon-border:      rgba(0, 255, 65, 0.20);
+  --neon-border-mid:  rgba(0, 255, 65, 0.38);
+  --neon-border-hi:   rgba(0, 255, 65, 0.65);
+
+  /* ── Glows ─────────────────────────────────────── */
+  --neon-glow:        0 0 12px rgba(0, 255, 65, 0.45),
+                      0 0 30px rgba(0, 255, 65, 0.15);
+  --neon-glow-sm:     0 0 6px  rgba(0, 255, 65, 0.35);
+  --neon-glow-pink:   0 0 12px rgba(255, 0, 144, 0.45),
+                      0 0 30px rgba(255, 0, 144, 0.15);
+  --neon-glow-cyan:   0 0 12px rgba(0, 212, 255, 0.45);
+  --neon-text-glow:   0 0 8px  rgba(0, 255, 65, 0.70);
+
+  /* ── Typography ────────────────────────────────── */
+  --neon-font-mono:   'IBM Plex Mono', 'Fira Code', 'JetBrains Mono',
+                      ui-monospace, monospace;
+  --neon-font-body:   var(--neon-font-mono);
+  --neon-font-size:   14px;
+  --neon-line-height: 1.6;
+
+  /* ── Text Colors ───────────────────────────────── */
+  --neon-text:        #c8ffdc;
+  --neon-text-mid:    #7dbd8e;
+  --neon-text-soft:   #4a7a56;
+  --neon-text-dim:    #2a4a32;
+
+  /* ── Radius & Spacing ──────────────────────────── */
+  --neon-radius-sm:   4px;
+  --neon-radius-md:   8px;
+  --neon-radius-lg:   12px;
+  --neon-radius-pill: 999px;
+
+  /* ── Animation ─────────────────────────────────── */
+  --neon-transition:  150ms ease;
+  --neon-transition-slow: 300ms ease;
+  --matrix-density:   0.03;   /* Rain column density (0.01–0.10) */
+  --matrix-speed:     1.0;    /* Speed multiplier */
+  --matrix-opacity:   0.18;   /* Background rain opacity */
+
+  /* ── Scrollbar ─────────────────────────────────── */
+  --neon-scrollbar-track: #0a0a0a;
+  --neon-scrollbar-thumb: rgba(0, 255, 65, 0.25);
+}

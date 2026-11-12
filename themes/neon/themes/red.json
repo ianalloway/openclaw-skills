@@ -1,0 +1,35 @@
+{
+  "name": "Neon Red",
+  "description": "Danger-mode crimson controls with neon-orange highlights on blood-black surfaces.",
+  "workingIndicator": "dots",
+  "workingPhrases": [
+    "Jacking in",
+    "Decrypting",
+    "Tracing the signal",
+    "Rerouting",
+    "Compiling"
+  ],
+  "dark": {
+    "background": "#0d0505",
+    "foreground": "#ffd6d6",
+    "card": "#160808",
+    "card-foreground": "#ffd6d6",
+    "popover": "#240b0b",
+    "popover-foreground": "#ffd6d6",
+    "primary": "#ff3333",
+    "primary-foreground": "#0d0505",
+    "secondary": "#2f0b0b",
+    "secondary-foreground": "#ffd6d6",
+    "muted": "#1e0808",
+    "muted-foreground": "#c98a8a",
+    "accent": "#ff7a18",
+    "accent-foreground": "#0d0505",
+    "destructive": "#ff1111",
+    "destructive-foreground": "#0d0505",
+    "border": "rgba(255, 51, 51, 0.22)",
+    "input": "rgba(255, 51, 51, 0.42)",
+    "ring": "#ff3333",
+    "font-sans": "\"IBM Plex Mono\", \"JetBrains Mono\", \"Fira Code\", ui-monospace, monospace",
+    "font-mono": "\"IBM Plex Mono\", \"JetBrains Mono\", \"Fira Code\", ui-monospace, monospace"
+  }
+}

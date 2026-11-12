@@ -1,0 +1,41 @@
+{
+  "id": "theme-neon",
+  "name": "Neon themes",
+  "description": "Neon cyberpunk appearance themes for the OpenClaw Control UI: matrix green, ocean blue, retro amber, danger red, and Dracula.",
+  "configSchema": {
+    "type": "object",
+    "additionalProperties": false
+  },
+  "themes": [
+    {
+      "id": "matrix",
+      "name": "Neon Matrix",
+      "description": "Near-black terminal with matrix-green controls, hot-pink highlights, and IBM Plex Mono throughout.",
+      "source": "themes/matrix.json"
+    },
+    {
+      "id": "blue",
+      "name": "Neon Blue",
+      "description": "Deep navy ocean rig with electric cyan controls, purple highlights, and monospace type.",
+      "source": "themes/blue.json"
+    },
+    {
+      "id": "amber",
+      "name": "Neon Amber",
+      "description": "Retro amber phosphor on warm black with teal highlights and monospace type.",
+      "source": "themes/amber.json"
+    },
+    {
+      "id": "red",
+      "name": "Neon Red",
+      "description": "Danger-mode crimson controls with neon-orange highlights on blood-black surfaces.",
+      "source": "themes/red.json"
+    },
+    {
+      "id": "dracula",
+      "name": "Neon Dracula",
+      "description": "The official Dracula palette: green controls, pink highlights, purple-grey surfaces, monospace type.",
+      "source": "themes/dracula.json"
+    }
+  ]
+}

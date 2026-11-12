@@ -1,0 +1,40 @@
+name: Theme neon checks
+
+on:
+  push:
+    branches: [main]
+    paths: ['themes/neon/**', '.github/workflows/theme-neon.yml']
+  pull_request:
+    paths: ['themes/neon/**', '.github/workflows/theme-neon.yml']
+
+permissions:
+  contents: read
+
+defaults:
+  run:
+    working-directory: themes/neon
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7
+      - uses: actions/setup-node@v6
+        with:
+          node-version: '22'
+      - run: node --test tests/*.test.cjs
+
+  openclaw-plugin:
+    name: OpenClaw plugin themes
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7
+      - uses: actions/setup-node@v7
+        with:
+          node-version: '24'
+      - name: Install pinned OpenClaw
+        run: >-
+          npm install --prefix "$RUNNER_TEMP/openclaw" --no-save --no-audit --no-fund
+          --ignore-scripts --loglevel=error "openclaw@$(cat .openclaw-version)"
+      - name: Check themes (freshness, contrast, OpenClaw load)
+        run: node scripts/check-plugin.mjs "$RUNNER_TEMP/openclaw/node_modules/openclaw/openclaw.mjs"

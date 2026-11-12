@@ -1,0 +1,35 @@
+{
+  "name": "Neon Matrix",
+  "description": "Near-black terminal with matrix-green controls, hot-pink highlights, and IBM Plex Mono throughout.",
+  "workingIndicator": "dots",
+  "workingPhrases": [
+    "Jacking in",
+    "Decrypting",
+    "Tracing the signal",
+    "Rerouting",
+    "Compiling"
+  ],
+  "dark": {
+    "background": "#090909",
+    "foreground": "#c8ffdc",
+    "card": "#0e0e0e",
+    "card-foreground": "#c8ffdc",
+    "popover": "#0d1c11",
+    "popover-foreground": "#c8ffdc",
+    "primary": "#00ff41",
+    "primary-foreground": "#090909",
+    "secondary": "#082b11",
+    "secondary-foreground": "#c8ffdc",
+    "muted": "#081a0d",
+    "muted-foreground": "#7dbd8e",
+    "accent": "#ff0090",
+    "accent-foreground": "#090909",
+    "destructive": "#ff3333",
+    "destructive-foreground": "#090909",
+    "border": "rgba(0, 255, 65, 0.20)",
+    "input": "rgba(0, 255, 65, 0.38)",
+    "ring": "#00ff41",
+    "font-sans": "\"IBM Plex Mono\", \"JetBrains Mono\", \"Fira Code\", ui-monospace, monospace",
+    "font-mono": "\"IBM Plex Mono\", \"JetBrains Mono\", \"Fira Code\", ui-monospace, monospace"
+  }
+}
