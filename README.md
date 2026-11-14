@@ -4,7 +4,7 @@
 ![CI](https://github.com/ianalloway/openclaw-skills/actions/workflows/ci.yml/badge.svg)
 ![OpenClaw](https://img.shields.io/badge/OpenClaw-AI_Agent-purple)
 ![License](https://img.shields.io/badge/License-MIT-green.svg)
-[![ClawHub](https://img.shields.io/badge/ClawHub-3_published-orange)](#published-on-clawhub)
+[![ClawHub](https://img.shields.io/badge/ClawHub-4_published-orange)](#published-on-clawhub)
 
 **17 tested, installable skills that give the [OpenClaw](https://github.com/openclaw/openclaw) AI assistant sports-analytics, market-data and LLM-judge-auditing tools.**
 
@@ -16,7 +16,7 @@ cd openclaw-skills
 ./install.sh --bundle sports-bettor        # or: ./install.sh sports-odds kelly-criterion
 ```
 
-Three skills are also on ClawHub (`openclaw skills install @ianalloway/sports-odds`); see [Installation](#installation) for every option.
+Four skills are also on ClawHub (`openclaw skills install @ianalloway/sports-odds`); see [Installation](#installation) for every option.
 
 This repo currently includes **17 skills**. The focus is **sports betting analytics**
 (odds, Kelly sizing, bet and CLV journals, DFS), **data and markets** (terminal
@@ -289,24 +289,28 @@ cp -r sports-odds ~/.openclaw/skills/
 
 ### Published on ClawHub
 
-Only three skills are on [ClawHub](https://clawhub.ai/) so far, each at its
-first published version (May 2026). That version predates the current metadata format:
+These four repository skills have public [ClawHub](https://clawhub.ai/) entries:
 
 | Skill | ClawHub |
 |---|---|
 | `sports-odds` | [ianalloway/sports-odds](https://clawhub.ai/ianalloway/skills/sports-odds) |
 | `data-viz` | [ianalloway/data-viz](https://clawhub.ai/ianalloway/skills/data-viz) |
 | `nft-tracker` | [ianalloway/nft-tracker](https://clawhub.ai/ianalloway/skills/nft-tracker) |
+| `judge-audit` | [ianalloway/judge-audit](https://clawhub.ai/ianalloway/skills/judge-audit) |
+
+Install a published skill with the [native OpenClaw command](https://docs.openclaw.ai/tools/clawhub):
 
 ```bash
 openclaw skills install @ianalloway/sports-odds
+openclaw skills install @ianalloway/data-viz
+openclaw skills install @ianalloway/nft-tracker
+openclaw skills install @ianalloway/judge-audit
 ```
 
-The other skills install from this checkout, either with `install.sh` (above) or
-with OpenClaw's own installer pointed at a skill folder:
+To install any skill from this checkout instead, use `install.sh` (above):
 
 ```bash
-openclaw skills install ./judge-audit
+./install.sh judge-audit
 ```
 
 ## Usage
