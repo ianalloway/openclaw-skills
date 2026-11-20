@@ -45,6 +45,24 @@ class InstallerTests(unittest.TestCase):
             self.assertTrue((self.dest / name / "SKILL.md").is_file())
         self.assertEqual(sorted(p.name for p in self.dest.iterdir()), ["alpha", "beta"])
 
+    def test_list_shows_catalog_and_selected_destination_without_installing(self):
+        (self.source / "docs").mkdir()
+        (self.source / "alias").symlink_to(self.source / "alpha", target_is_directory=True)
+        result = self.run_install("--list")
+        self.assertEqual(result.returncode, 0, result.stderr)
+        self.assertEqual(result.stdout.splitlines(), ["Skill\tStatus", "alpha\tavailable", "beta\tavailable"])
+        self.assertFalse(self.dest.exists())
+        other = self.base / "other skills"
+        self.assertEqual(self.run_install("--dest", str(other), "beta").returncode, 0)
+        result = self.run_install("--dest", str(other), "--list")
+        self.assertEqual(result.stdout.splitlines(), ["Skill\tStatus", "alpha\tavailable", "beta\tinstalled"])
+
+    def test_list_rejects_install_selections(self):
+        for args in (("--list", "alpha"), ("--bundle", "developer-tools", "--list")):
+            with self.subTest(args=args):
+                self.assertNotEqual(self.run_install(*args).returncode, 0)
+                self.assertFalse(self.dest.exists())
+
     def test_replaces_selected_skill_and_preserves_unrelated_files(self):
         existing = self.dest / "alpha"
         existing.mkdir(parents=True)
