@@ -10,10 +10,12 @@ ROOT="$(cd -- "$(dirname -- "${BASH_SOURCE[0]}")" && pwd -P)"
 DEST="${OPENCLAW_SKILLS_DIR:-${HOME}/.openclaw/skills}"
 BUNDLE=""
 SKILLS=()
+LIST=false
 
 usage() {
   cat <<'EOFUSAGE'
 Usage: install.sh [--dest DIR] [--bundle NAME | skill...]
+       install.sh [--dest DIR] --list
 
 Bundles:
   sports-bettor      sports-odds kelly-criterion bet-journal clv-journal
@@ -40,11 +42,26 @@ while [[ $# -gt 0 ]]; do
       shift 2
       ;;
     -h|--help) usage; exit 0 ;;
+    --list) LIST=true; shift ;;
     --) shift; SKILLS+=("$@"); break ;;
     -*) fail "Unknown option: $1" ;;
     *) SKILLS+=("$1"); shift ;;
   esac
 done
+
+if [[ "$LIST" == true ]]; then
+  [[ -z "$BUNDLE" && ${#SKILLS[@]} -eq 0 ]] || fail "--list does not take a bundle or skill names"
+  printf 'Skill\tStatus\n'
+  for manifest in "$ROOT"/*/SKILL.md; do
+    dir="${manifest%/SKILL.md}"
+    name="${dir##*/}"
+    [[ "$name" =~ ^[a-z0-9][a-z0-9-]*$ && ! -L "$dir" && -f "$manifest" && ! -L "$manifest" ]] || continue
+    status=available
+    if [[ -f "$DEST/$name/SKILL.md" ]]; then status=installed; fi
+    printf '%s\t%s\n' "$name" "$status"
+  done
+  exit 0
+fi
 
 if [[ -n "$BUNDLE" ]]; then
   [[ ${#SKILLS[@]} -eq 0 ]] || fail "Choose a bundle or individual skills, not both"

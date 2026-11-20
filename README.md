@@ -263,6 +263,7 @@ git clone https://github.com/ianalloway/openclaw-skills
 cd openclaw-skills
 
 # Individual skills
+./install.sh --list
 ./install.sh sports-odds kelly-criterion bet-journal clv-journal
 
 # Curated bundles
@@ -279,6 +280,10 @@ Skills install to `~/.openclaw/skills/` by default (override with `--dest DIR` o
 selected skills are replaced, so keep local customizations in version control.
 The installer validates all requested names and stages their copies before
 replacing installed folders; unrelated skills are left in place.
+
+`./install.sh --list` lists installable skills in the checkout and marks each as
+`installed` when its `SKILL.md` exists in the chosen destination. Use
+`./install.sh --dest DIR --list` to inspect another installation.
 
 ### Manual copy
 
