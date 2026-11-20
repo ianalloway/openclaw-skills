@@ -1,12 +1,12 @@
 # Ian's OpenClaw Skills
 
-![Skills](https://img.shields.io/badge/skills-17-blue)
+![Skills](https://img.shields.io/badge/skills-18-blue)
 ![CI](https://github.com/ianalloway/openclaw-skills/actions/workflows/ci.yml/badge.svg)
 ![OpenClaw](https://img.shields.io/badge/OpenClaw-AI_Agent-purple)
 ![License](https://img.shields.io/badge/License-MIT-green.svg)
 [![ClawHub](https://img.shields.io/badge/ClawHub-3_published-orange)](#published-on-clawhub)
 
-**17 tested, installable skills that give the [OpenClaw](https://github.com/openclaw/openclaw) AI assistant sports-analytics, market-data and LLM-judge-auditing tools.**
+**18 tested, installable skills that give the [OpenClaw](https://github.com/openclaw/openclaw) AI assistant sports-analytics, market-data and LLM-judge-auditing tools.**
 
 ### Quickstart
 
@@ -18,7 +18,7 @@ cd openclaw-skills
 
 Three skills are also on ClawHub (`openclaw skills install @ianalloway/sports-odds`); see [Installation](#installation) for every option.
 
-This repo currently includes **17 skills**. The focus is **sports betting analytics**
+This repo currently includes **18 skills**. The focus is **sports betting analytics**
 (odds, Kelly sizing, bet and CLV journals, DFS), **data and markets** (terminal
 charts, rebalancing, sentiment), and **LLM-judge auditing** with
 [juryrig](https://github.com/ianalloway/juryrig). A few general utilities overlap with
@@ -237,6 +237,10 @@ Current conditions, multi-day forecasts, and alerts for any location.
 - Optional OpenWeatherMap detailed data
 
 **Uses:** [wttr.in](https://github.com/chubin/wttr.in) (free, no key required)
+
+#### 18. CSV Profile (`csv-profile`)
+
+Check a local CSV or TSV before importing it. The bundled Python script reports record counts, short and long rows, and blank cells for each column. Install it with `./install.sh csv-profile`.
 
 ### Overlap with OpenClaw built-ins
 
