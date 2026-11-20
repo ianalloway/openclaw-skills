@@ -280,6 +280,11 @@ Skills install to `~/.openclaw/skills/` by default (override with `--dest DIR` o
 selected skills are replaced, so keep local customizations in version control.
 The installer validates all requested names and stages their copies before
 replacing installed folders; unrelated skills are left in place.
+An error during replacement restores the previous selection, including when a
+later skill in the same bundle fails. Concurrent installs into one destination
+are rejected while its `.openclaw-install.lock` directory exists. If the
+installer was forcibly terminated, inspect the lock directory and its `old/`
+backups before clearing it and retrying.
 
 `./install.sh --list` lists installable skills in the checkout and marks each as
 `installed` when its `SKILL.md` exists in the chosen destination. Use
