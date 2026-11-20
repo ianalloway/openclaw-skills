@@ -151,6 +151,41 @@ class InstallerTests(unittest.TestCase):
         self.assertFalse((existing / "SKILL.md").exists())
         self.assertEqual([p.name for p in self.dest.iterdir()], ["alpha"])
 
+    def test_later_failure_rolls_back_earlier_replacements_and_new_skills(self):
+        self.dest.mkdir()
+        mock_bin = self.base / "bin"
+        mock_bin.mkdir()
+        wrapper = mock_bin / "mv"
+        real_mv = shlex.quote(shutil.which("mv"))
+        wrapper.write_text(
+            '#!/bin/sh\ncase "$2" in */new/beta) exit 1 ;; esac\n'
+            f'exec {real_mv} "$@"\n'
+        )
+        wrapper.chmod(0o755)
+        env = {"PATH": f"{mock_bin}{os.pathsep}{os.environ['PATH']}"}
+        for existing in (False, True):
+            with self.subTest(existing=existing):
+                alpha = self.dest / "alpha"
+                if existing:
+                    alpha.mkdir()
+                    (alpha / "custom.txt").write_text("previous")
+                result = self.run_install("alpha", "beta", env_overrides=env)
+                self.assertNotEqual(result.returncode, 0)
+                self.assertFalse((self.dest / "beta").exists())
+                if existing:
+                    self.assertEqual((alpha / "custom.txt").read_text(), "previous")
+                else:
+                    self.assertFalse(alpha.exists())
+
+    def test_preserves_another_installers_staging_directory(self):
+        staging = self.dest / ".openclaw-install.lock"
+        staging.mkdir(parents=True)
+        (staging / "sentinel").write_text("in progress")
+        result = self.run_install("alpha")
+        self.assertNotEqual(result.returncode, 0)
+        self.assertFalse((self.dest / "alpha").exists())
+        self.assertEqual((staging / "sentinel").read_text(), "in progress")
+
     def test_bundle_cannot_silently_override_explicit_skills(self):
         result = self.run_install("--bundle", "sports-bettor", "alpha")
         self.assertNotEqual(result.returncode, 0)

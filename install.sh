@@ -104,38 +104,44 @@ for skill in "${SELECTED[@]}"; do
   [[ ! -e "$target" || -d "$target" ]] || fail "Destination is not a directory: $target"
 done
 
-STAGING="$(mktemp -d "$DEST/.openclaw-skills.XXXXXX")"
-mkdir -- "$STAGING/new" "$STAGING/old"
+STAGING="$DEST/.openclaw-install.lock"
+mkdir -m 700 -- "$STAGING" ||
+  fail "Cannot reserve $STAGING. Check for another install or an interrupted update."
+installing=false
 cleanup() {
-  for skill in "${SELECTED[@]}"; do
-    backup="$STAGING/old/$skill"
-    target="$DEST/$skill"
-    if [[ -d "$backup" && ! -e "$target" && ! -L "$target" ]]; then
-      if ! mv -- "$backup" "$target"; then
-        echo "Backup preserved at $backup" >&2
+  if [[ "$installing" == true ]]; then
+    for skill in "${SELECTED[@]}"; do
+      target="$DEST/$skill"
+      staged="$STAGING/new/$skill"
+      backup="$STAGING/old/$skill"
+      # A missing staged directory means this invocation moved it into place.
+      if [[ ! -d "$staged" ]] && ! mv -- "$target" "$staged"; then
+        echo "Could not undo $target. Recovery files preserved at $STAGING" >&2
         return
       fi
-    fi
-  done
+      if [[ -d "$backup" ]] && ! mv -- "$backup" "$target"; then
+        echo "Could not restore $target. Recovery files preserved at $STAGING" >&2
+        return
+      fi
+    done
+  fi
   rm -rf -- "$STAGING"
 }
 trap cleanup EXIT
 trap 'exit 130' INT
 trap 'exit 143' TERM
+mkdir -- "$STAGING/new" "$STAGING/old"
 for skill in "${SELECTED[@]}"; do
   cp -R -- "$ROOT/$skill" "$STAGING/new/$skill"
 done
 
+installing=true
 for skill in "${SELECTED[@]}"; do
   target="$DEST/$skill"
-  backup="$STAGING/old/$skill"
-  if [[ -d "$target" ]]; then mv -- "$target" "$backup"; fi
-  if ! mv -- "$STAGING/new/$skill" "$target"; then
-    if [[ -d "$backup" ]] && ! mv -- "$backup" "$target"; then
-      trap - EXIT
-      fail "Could not restore $target; its backup is preserved at $backup"
-    fi
-    fail "Could not install $skill"
-  fi
-  echo "Installed $skill -> $target"
+  if [[ -d "$target" ]]; then mv -- "$target" "$STAGING/old/$skill"; fi
+  mv -- "$STAGING/new/$skill" "$target" || fail "Could not install $skill"
+done
+installing=false
+for skill in "${SELECTED[@]}"; do
+  echo "Installed $skill -> $DEST/$skill"
 done
